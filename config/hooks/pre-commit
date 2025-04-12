@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "🔍 Running pre-commit quality checks..."
+
+mvn formatter:format || exit 1
+mvn checkstyle:check || exit 1
+mvn pmd:check || exit 1
+mvn test jacoco:report || exit 1
+
+echo "✅ All quality checks passed!"
