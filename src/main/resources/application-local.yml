@@ -12,17 +12,24 @@ spring:
 
   kafka:
     bootstrap-servers: localhost:9092
+    admin:
+      auto-create: true
 
   data:
     redis:
       host: localhost
       port: 6379
-
 acme:
   insurance:
     cache-ttl-seconds:
       catalog-product: 3600
       catalog-offer: 3600
+  kafka:
+    topics:
+      quotation-created: quotation.created
+      policy-issued: policy.issued
+    consumer:
+      group-id: quotation-service-group
 
 feign:
   catalog:
