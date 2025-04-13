@@ -6,7 +6,7 @@ import com.acmeinsurance.infrastructure.web.dto.response.QuotationResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = { CustomerMapper.class })
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {CustomerMapper.class})
 public interface QuotationMapper {
 
     Quotation toDomain(QuotationRequest request);

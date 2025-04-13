@@ -28,19 +28,11 @@ public class QuotationController {
         this.quotationMapper = quotationMapper;
     }
 
-    @Operation(
-            summary = "Create a new insurance quotation",
-            description = "Validates the quotation request, verifies the product and offer via external catalog, caches the result, and stores the quotation if valid."
-    )
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Quotation successfully created"),
-            @ApiResponse(responseCode = "400", description = "Invalid input data",
-                    content = @Content(schema = @Schema(ref = "#/components/schemas/ErrorResponse"))),
-            @ApiResponse(responseCode = "422", description = "Business rule violation",
-                    content = @Content(schema = @Schema(ref = "#/components/schemas/ErrorResponse"))),
-            @ApiResponse(responseCode = "500", description = "Unexpected error",
-                    content = @Content(schema = @Schema(ref = "#/components/schemas/ErrorResponse")))
-    })
+    @Operation(summary = "Create a new insurance quotation", description = "Validates the quotation request, verifies the product and offer via external catalog, caches the result, and stores the quotation if valid.")
+    @ApiResponses(value = {@ApiResponse(responseCode = "201", description = "Quotation successfully created"),
+            @ApiResponse(responseCode = "400", description = "Invalid input data", content = @Content(schema = @Schema(ref = "#/components/schemas/ErrorResponse"))),
+            @ApiResponse(responseCode = "422", description = "Business rule violation", content = @Content(schema = @Schema(ref = "#/components/schemas/ErrorResponse"))),
+            @ApiResponse(responseCode = "500", description = "Unexpected error", content = @Content(schema = @Schema(ref = "#/components/schemas/ErrorResponse")))})
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<QuotationResponse> create(@Valid @RequestBody QuotationRequest request) {
