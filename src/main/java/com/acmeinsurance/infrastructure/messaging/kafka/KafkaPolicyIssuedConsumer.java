@@ -22,11 +22,7 @@ public class KafkaPolicyIssuedConsumer {
         this.mapper = mapper;
     }
 
-    @KafkaListener(
-            topics = "${acme.kafka.topics.policy-issued}",
-            groupId = "${acme.kafka.consumer.group-id}",
-            containerFactory = "kafkaListenerContainerFactory"
-    )
+    @KafkaListener(topics = "${acme.kafka.topics.policy-issued}", groupId = "${acme.kafka.consumer.group-id}", containerFactory = "kafkaListenerContainerFactory")
     public void listen(ConsumerRecord<String, PolicyIssuedEvent> record) {
         log.info("Consumed event from topic [{}]: {}", record.topic(), record.value());
         var policyIssued = mapper.toDomain(record.value());

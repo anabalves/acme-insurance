@@ -22,17 +22,15 @@ public class UpdateQuotationWithPolicyService implements UpdateQuotationWithPoli
 
     @Override
     public void execute(PolicyIssued event) {
-        log.info("Applying policy [{}] to quotation [{}] at {}",
-                event.policyId(), event.quotationId(), event.issuedAt());
+        log.info("Applying policy [{}] to quotation [{}] at {}", event.policyId(), event.quotationId(),
+                event.issuedAt());
 
-        quotationRepository.findById(event.quotationId())
-                .ifPresentOrElse(quotation -> {
-                    quotation = quotation.withInsurancePolicyId(event.policyId())
-                            .withUpdatedAt(LocalDateTime.now());
+        quotationRepository.findById(event.quotationId()).ifPresentOrElse(quotation -> {
+            quotation = quotation.withInsurancePolicyId(event.policyId()).withUpdatedAt(LocalDateTime.now());
 
-                    quotationRepository.save(quotation);
-                    log.info("Quotation [{}] updated with policy ID [{}]", event.quotationId(), event.policyId());
-                }, () -> log.warn("Quotation [{}] not found, cannot apply policy", event.quotationId()));
+            quotationRepository.save(quotation);
+            log.info("Quotation [{}] updated with policy ID [{}]", event.quotationId(), event.policyId());
+        }, () -> log.warn("Quotation [{}] not found, cannot apply policy", event.quotationId()));
     }
 
 }
