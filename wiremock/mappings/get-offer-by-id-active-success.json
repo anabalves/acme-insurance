@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPathPattern": "/offers/(adc56d77-348c-4bf0-908f-22d402ee715c|bdc56d77-348c-4bf0-908f-22d402ee715c|cdc56d77-348c-4bf0-908f-22d402ee715c)"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "get-offer-by-id-active-success-response.json",
+        "transformers": ["response-template"],
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

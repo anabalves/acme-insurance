@@ -1,0 +1,4 @@
+{
+    "code": 404,
+    "message": "Offer {{request.path.[1]}} not found"
+}

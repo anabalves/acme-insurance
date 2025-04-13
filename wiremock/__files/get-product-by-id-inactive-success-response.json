@@ -1,0 +1,11 @@
+{
+    "id": "edaa71d6-4f31-4f6a-a3cb-59949d48ad5e",
+    "name": "Seguro de Vida",
+    "created_at": "2021-07-01T00:00:00Z",
+    "active": false,
+    "offers": [
+        "b56de912-cd30-4795-962e-07327eceba5c",
+        "564d25fd-d22d-4fca-a03d-bd625338a1ca",
+        "76a9149b-41c5-4b4c-8189-bfb26315037e"
+    ]
+}

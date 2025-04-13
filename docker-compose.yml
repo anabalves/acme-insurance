@@ -1,0 +1,55 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+      - wiremock
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: db_acme_insurance
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  kafka:
+    image: bitnami/kafka:latest
+    environment:
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      ALLOW_PLAINTEXT_LISTENER: "yes"
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+    ports:
+      - "2181:2181"
+
+  wiremock:
+    image: wiremock/wiremock:3.3.1
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./wiremock/mappings:/home/wiremock/mappings
+      - ./wiremock/__files:/home/wiremock/__files
+    command:
+      - "--global-response-templating"
+      - "--enable-stub-cors"
+      - "--verbose"

@@ -1,0 +1,24 @@
+{
+    "id": "{{request.path.[1]}}",
+    "product_id": "1b2da7cc-b367-4196-8a78-9cfeec21f587",
+    "name": "Seguro de Vida Familiar",
+    "created_at": "2021-07-01T00:00:00Z",
+    "active": true,
+    "coverages": {
+        "Incêndio": 500000.00,
+        "Desastres naturais": 600000.00,
+        "Responsabiliadade civil": 80000.00,
+        "Roubo": 100000.00
+    },
+    "assistances": [
+        "Encanador",
+        "Eletricista",
+        "Chaveiro 24h",
+        "Assistência Funerária"
+    ],
+    "monthly_premium_amount": {
+        "max_amount": 100.74,
+        "min_amount": 50.00,
+        "suggested_amount": 60.25
+    }
+}
