@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/offers/(?!adc56d77-348c-4bf0-908f-22d402ee715c|bdc56d77-348c-4bf0-908f-22d402ee715c|cdc56d77-348c-4bf0-908f-22d402ee715c|b56de912-cd30-4795-962e-07327eceba5c|564d25fd-d22d-4fca-a03d-bd625338a1ca|76a9149b-41c5-4b4c-8189-bfb26315037e).*"
+        "urlPattern": "/offers/(\\?!adc56d77-348c-4bf0-908f-22d402ee715c|bdc56d77-348c-4bf0-908f-22d402ee715c|cdc56d77-348c-4bf0-908f-22d402ee715c|b56de912-cd30-4795-962e-07327eceba5c|564d25fd-d22d-4fca-a03d-bd625338a1ca|76a9149b-41c5-4b4c-8189-bfb26315037e).*"
     },
     "response": {
         "status": 404,

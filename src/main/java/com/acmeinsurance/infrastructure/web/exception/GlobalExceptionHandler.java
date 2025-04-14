@@ -1,17 +1,20 @@
 package com.acmeinsurance.infrastructure.web.exception;
 
 import com.acmeinsurance.domain.exception.BusinessException;
+import com.acmeinsurance.domain.exception.GatewayException;
 import com.acmeinsurance.domain.exception.NotFoundException;
 import com.acmeinsurance.infrastructure.web.dto.common.ErrorResponse;
 import jakarta.validation.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.util.List;
@@ -95,6 +98,14 @@ public class GlobalExceptionHandler {
 
         ErrorResponse errorResponse = ErrorResponse.of("422", ex.getMessage());
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(errorResponse);
+    }
+
+    @ExceptionHandler(GatewayException.class)
+    public ResponseEntity<ErrorResponse> handleGateway(GatewayException ex) {
+        log.warn("Gateway integration failure: {}", ex.getMessage());
+
+        ErrorResponse errorResponse = ErrorResponse.of("502", "External service is unavailable");
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(errorResponse);
     }
 
     @ExceptionHandler(Exception.class)

@@ -2,9 +2,9 @@ package com.acmeinsurance.infrastructure.web.controller;
 
 import com.acmeinsurance.application.usecase.CreateQuotationUseCase;
 import com.acmeinsurance.application.usecase.FindQuotationByIdUseCase;
+import com.acmeinsurance.infrastructure.web.dto.common.ErrorResponse;
 import com.acmeinsurance.infrastructure.web.dto.request.QuotationRequest;
 import com.acmeinsurance.infrastructure.web.dto.response.QuotationResponse;
-import com.acmeinsurance.infrastructure.web.dto.common.ErrorResponse;
 import com.acmeinsurance.infrastructure.web.mapper.QuotationMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

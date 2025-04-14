@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/products/(?!1b2da7cc-b367-4196-8a78-9cfeec21f587|edaa71d6-4f31-4f6a-a3cb-59949d48ad5e).*"
+        "urlPattern": "/products/(\\?!1b2da7cc-b367-4196-8a78-9cfeec21f587|edaa71d6-4f31-4f6a-a3cb-59949d48ad5e).*"
     },
     "response": {
         "status": 404,

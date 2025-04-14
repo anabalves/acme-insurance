@@ -3,21 +3,23 @@ spring:
     name: acme-insurance
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST}:5432/db_acme_insurance
-    username: ${DB_USER}
-    password: ${DB_PASS}
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/db_acme_insurance
+    username: ${DB_USER:user}
+    password: ${DB_PASS:password}
 
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: false
+    show-sql: ${SHOW_SQL:true}
     properties:
       hibernate:
-        format_sql: false
+        format_sql: ${FORMAT_SQL:true}
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    admin:
+      auto-create: true
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -30,8 +32,8 @@ spring:
 
   data:
     redis:
-      host: ${REDIS_HOST}
-      port: 6379
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
 
   cloud:
     openfeign:
@@ -47,24 +49,27 @@ spring:
 acme:
   insurance:
     cache-ttl-seconds:
-      catalog-product: ${CATALOG_PRODUCT_API_CACHE_TTL}
-      catalog-offer: ${CATALOG_OFFER_API_CACHE_TTL}
+      catalog-product: ${CATALOG_PRODUCT_API_CACHE_TTL:3600}
+      catalog-offer: ${CATALOG_OFFER_API_CACHE_TTL:3600}
+
   kafka:
     topics:
-      quotation-created: ${KAFKA_TOPIC_QUOTATION_CREATED}
-      policy-issued: ${KAFKA_TOPIC_POLICY_ISSUED}
+      quotation-created: ${KAFKA_TOPIC_QUOTATION_CREATED:quotation.created}
+      policy-issued: ${KAFKA_TOPIC_POLICY_ISSUED:policy.issued}
     consumer:
-      group-id: ${KAFKA_CONSUMER_GROUP_ID}
-
+      group-id: ${KAFKA_CONSUMER_GROUP_ID:quotation-service-group}
 
 feign:
   catalog:
     product:
       api:
-        baseurl: ${CATALOG_PRODUCT_API_BASE_URL}
+        baseurl: ${CATALOG_PRODUCT_API_BASE_URL:http://localhost:8081/products}
     offer:
       api:
-        baseurl: ${CATALOG_OFFER_API_BASE_URL}
+        baseurl: ${CATALOG_OFFER_API_BASE_URL:http://localhost:8081/offers}
+
+server:
+  port: ${SERVER_PORT:8080}
 
 management:
   endpoints:

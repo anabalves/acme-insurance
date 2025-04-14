@@ -1,55 +1,85 @@
 services:
-  app:
-    build: .
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-      - kafka
-      - redis
-      - wiremock
-
   postgres:
     image: postgres:15
+    container_name: postgres
     environment:
       POSTGRES_DB: db_acme_insurance
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
+    networks:
+      - acme-network
 
   redis:
     image: redis:7
+    container_name: redis
     ports:
       - "6379:6379"
+    networks:
+      - acme-network
 
   kafka:
-    image: bitnami/kafka:latest
+    image: bitnami/kafka:3.4.0
+    container_name: kafka
     environment:
-      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092
-      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      ALLOW_PLAINTEXT_LISTENER: "yes"
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
+      - ALLOW_PLAINTEXT_LISTENER=yes
     ports:
       - "9092:9092"
-    depends_on:
-      - zookeeper
-
-  zookeeper:
-    image: bitnami/zookeeper:latest
-    environment:
-      ALLOW_ANONYMOUS_LOGIN: "yes"
-    ports:
-      - "2181:2181"
+    networks:
+      - acme-network
 
   wiremock:
-    image: wiremock/wiremock:3.3.1
+    image: wiremock/wiremock:3.4.2
+    container_name: wiremock
     ports:
       - "8081:8080"
     volumes:
-      - ./wiremock/mappings:/home/wiremock/mappings
-      - ./wiremock/__files:/home/wiremock/__files
+      - ./wiremock:/home/wiremock
     command:
       - "--global-response-templating"
       - "--enable-stub-cors"
       - "--verbose"
+    networks:
+      - acme-network
+
+  app:
+    build: .
+    container_name: acme-app
+    depends_on:
+      - postgres
+      - redis
+      - kafka
+      - wiremock
+    environment:
+      DB_HOST: postgres
+      DB_USER: user
+      DB_PASS: password
+
+      REDIS_HOST: redis
+
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_CONSUMER_GROUP_ID: quotation-service-group
+      KAFKA_TOPIC_QUOTATION_CREATED: quotation.created
+      KAFKA_TOPIC_POLICY_ISSUED: policy.issued
+
+      CATALOG_PRODUCT_API_BASE_URL: http://wiremock:8080/products
+      CATALOG_OFFER_API_BASE_URL: http://wiremock:8080/offers
+
+      CATALOG_PRODUCT_API_CACHE_TTL: 3600
+      CATALOG_OFFER_API_CACHE_TTL: 3600
+    ports:
+      - "8080:8080"
+    networks:
+      - acme-network
+
+networks:
+  acme-network:
+    driver: bridge

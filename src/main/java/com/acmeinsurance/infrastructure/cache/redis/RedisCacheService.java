@@ -25,9 +25,4 @@ public class RedisCacheService<T> implements CacheService<T> {
         redisTemplate.opsForValue().set(key, value, ttlSeconds, TimeUnit.SECONDS);
     }
 
-    @Override
-    public void evict(String key) {
-        redisTemplate.delete(key);
-    }
-
 }

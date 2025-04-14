@@ -14,6 +14,11 @@ public record Quotation(Long id, UUID productId, UUID offerId, Category category
                 coverages, assistances, customer, createdAt, updatedAt, insurancePolicyId);
     }
 
+    public Quotation withCreatedAt(LocalDateTime createdAt) {
+        return new Quotation(id, productId, offerId, category, totalMonthlyPremiumAmount, totalCoverageAmount,
+                coverages, assistances, customer, createdAt, updatedAt, insurancePolicyId);
+    }
+
     public Quotation withUpdatedAt(LocalDateTime updatedAt) {
         return new Quotation(id, productId, offerId, category, totalMonthlyPremiumAmount, totalCoverageAmount,
                 coverages, assistances, customer, createdAt, updatedAt, insurancePolicyId);

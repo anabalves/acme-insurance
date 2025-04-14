@@ -1,4 +1,4 @@
-package com.acmeinsurance.infrastructure.messaging.kafka;
+package com.acmeinsurance.infrastructure.messaging.kafka.config;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

@@ -1,9 +1,7 @@
 package com.acmeinsurance.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
 @ConfigurationProperties(prefix = "acme.kafka")
 public class KafkaProperties {
 

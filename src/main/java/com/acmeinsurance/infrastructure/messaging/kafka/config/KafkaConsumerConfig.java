@@ -1,4 +1,4 @@
-package com.acmeinsurance.infrastructure.messaging.kafka;
+package com.acmeinsurance.infrastructure.messaging.kafka.config;
 
 import com.acmeinsurance.config.KafkaProperties;
 import com.acmeinsurance.infrastructure.messaging.dto.event.PolicyIssuedEvent;
