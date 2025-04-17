@@ -7,7 +7,7 @@
     "coverages": {
         "Incêndio": 250000.00,
         "Desastres naturais": 500000.00,
-        "Responsabiliadade civil": 75000.00
+        "Responsabilidade civil": 75000.00
     },
     "assistances": ["Encanador", "Eletricista", "Chaveiro 24h"],
     "customer": {

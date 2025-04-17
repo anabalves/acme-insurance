@@ -1,0 +1,815 @@
+{
+	"info": {
+		"_postman_id": "bd5a1f8a-f75d-4dbb-976e-910098f9cf74",
+		"name": "ACME Insurance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44009539",
+		"_collection_link": "https://anaalves-5962065.postman.co/workspace/Ana-Alves's-Workspace~26cb1c1e-06e9-46d4-8642-263063736891/collection/44009539-bd5a1f8a-f75d-4dbb-976e-910098f9cf74?action=share&source=collection_link&creator=44009539"
+	},
+	"item": [
+		{
+			"name": "Criar Cotação",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/quotations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quotations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cotação criada com sucesso",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 00:57:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"insurancePolicyId\": null,\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\n    \"category\": \"HOME\",\n    \"createdAt\": \"2025-04-15T00:57:49.422633634\",\n    \"updatedAt\": \"2025-04-15T00:57:49.422633634\",\n    \"totalMonthlyPremiumAmount\": 75.25,\n    \"totalCoverageAmount\": 825000,\n    \"coverages\": {\n        \"Incêndio\": 250000,\n        \"Desastres naturais\": 500000,\n        \"Responsabilidade civil\": 75000\n    },\n    \"assistances\": [\n        \"Encanador\",\n        \"Eletricista\",\n        \"Chaveiro 24h\"\n    ],\n    \"customer\": {\n        \"documentNumber\": \"36205578900\",\n        \"name\": \"John Wick\",\n        \"type\": \"NATURAL\",\n        \"gender\": \"MALE\",\n        \"dateOfBirth\": \"1973-05-02\",\n        \"email\": \"johnwick@gmail.com\",\n        \"phoneNumber\": 11950503030\n    }\n}"
+				},
+				{
+					"name": "Produto inativo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"edaa71d6-4f31-4f6a-a3cb-59949d48ad5e\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 00:59:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Product is inactive\"\n}"
+				},
+				{
+					"name": "Produto não encontrado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 00:59:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"404\",\n    \"message\": \"Product with ID [00000000-0000-0000-0000-000000000000] not found\"\n}"
+				},
+				{
+					"name": "Oferta inativa",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"b56de912-cd30-4795-962e-07327eceba5c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:00:06 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Offer is inactive\"\n}"
+				},
+				{
+					"name": "Oferta não encontrada",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:00:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"404\",\n    \"message\": \"Offer with ID [00000000-0000-0000-0000-000000000000] not found\"\n}"
+				},
+				{
+					"name": "Oferta não pertence ao produto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"4b4b5df2-c7e8-4497-a5b9-e76e985ca49e\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:00:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Offer does not belong to the specified product\"\n}"
+				},
+				{
+					"name": "Cobertura inválida (não está no catálogo)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Cobertura Inexistente\": 1000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:00:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Coverage [Cobertura Inexistente] is not available in the offer\"\n}"
+				},
+				{
+					"name": "Cobertura acima do máximo permitido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 9999999.00,\r\n        \"Desastres naturais\": 200000.00,\r\n        \"Responsabilidade civil\": 100000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:00:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Coverage [Incêndio] exceeds max allowed value\"\n}"
+				},
+				{
+					"name": "Assistência inválida (não está no catálogo)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Assistência Inexistente\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:00:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Assistance [Assistência Inexistente] is not available in the offer\"\n}"
+				},
+				{
+					"name": "Prêmio fora da faixa da oferta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 101.00,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:01:00 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Total monthly premium amount is outside the allowed range\"\n}"
+				},
+				{
+					"name": "Total de cobertura não bate com a soma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 700000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:01:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Total coverage amount does not match the sum of individual coverages\"\n}"
+				},
+				{
+					"name": "Campos obrigatórios ausentes",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": null,\r\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\r\n    \"category\": \"HOME\",\r\n    \"totalMonthlyPremiumAmount\": 75.25,\r\n    \"totalCoverageAmount\": 825000.00,\r\n    \"coverages\": {\r\n        \"Incêndio\": 250000.00,\r\n        \"Desastres naturais\": 500000.00,\r\n        \"Responsabilidade civil\": 75000.00\r\n    },\r\n    \"assistances\": [\r\n        \"Encanador\",\r\n        \"Eletricista\",\r\n        \"Chaveiro 24h\"\r\n    ],\r\n    \"customer\": {\r\n        \"documentNumber\": \"36205578900\",\r\n        \"name\": \"John Wick\",\r\n        \"type\": \"NATURAL\",\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1973-05-02\",\r\n        \"email\": \"johnwick@gmail.com\",\r\n        \"phoneNumber\": 11950503030\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quotations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:01:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"400\",\n    \"message\": \"These attributes are missing or are invalid\",\n    \"errors\": [\n        {\n            \"field\": \"productId\",\n            \"description\": \"Product ID is required\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Consultar Cotação",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/quotations/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quotations",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cotação encontrada com sucesso",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/quotations/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:01:26 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"insurancePolicyId\": 1001,\n    \"productId\": \"1b2da7cc-b367-4196-8a78-9cfeec21f587\",\n    \"offerId\": \"adc56d77-348c-4bf0-908f-22d402ee715c\",\n    \"category\": \"HOME\",\n    \"createdAt\": \"2025-04-15T00:57:49.422634\",\n    \"updatedAt\": \"2025-04-15T00:57:49.422634\",\n    \"totalMonthlyPremiumAmount\": 75.25,\n    \"totalCoverageAmount\": 825000,\n    \"coverages\": {\n        \"Incêndio\": 250000,\n        \"Desastres naturais\": 500000,\n        \"Responsabilidade civil\": 75000\n    },\n    \"assistances\": [\n        \"Encanador\",\n        \"Eletricista\",\n        \"Chaveiro 24h\"\n    ],\n    \"customer\": {\n        \"documentNumber\": \"36205578900\",\n        \"name\": \"John Wick\",\n        \"type\": \"NATURAL\",\n        \"gender\": \"MALE\",\n        \"dateOfBirth\": \"1973-05-02\",\n        \"email\": \"johnwick@gmail.com\",\n        \"phoneNumber\": 11950503030\n    }\n}"
+				},
+				{
+					"name": "Cotação não encontrada",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/quotations/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quotations",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1001"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 01:01:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"404\",\n    \"message\": \"Quotation with ID [1001] not found\"\n}"
+				}
+			]
+		}
+	]
+}

@@ -141,7 +141,7 @@ public class QuotationTestFactory {
         Map<String, BigDecimal> coverages = new LinkedHashMap<>();
         coverages.put("Incêndio", new BigDecimal("250000.00"));
         coverages.put("Desastres naturais", new BigDecimal("500000.00"));
-        coverages.put("Responsabiliadade civil", new BigDecimal("75000.00"));
+        coverages.put("Responsabilidade civil", new BigDecimal("75000.00"));
         return coverages;
     }
 
@@ -149,7 +149,7 @@ public class QuotationTestFactory {
         Map<String, BigDecimal> coverages = new LinkedHashMap<>();
         coverages.put("Incêndio", new BigDecimal("500000.00"));
         coverages.put("Desastres naturais", new BigDecimal("600000.00"));
-        coverages.put("Responsabiliadade civil", new BigDecimal("80000.00"));
+        coverages.put("Responsabilidade civil", new BigDecimal("80000.00"));
         coverages.put("Roubo", new BigDecimal("100000.00"));
         return coverages;
     }
