@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/products/edaa71d6-4f31-4f6a-a3cb-59949d48ad5e"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "get-product-by-id-inactive-success-response.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

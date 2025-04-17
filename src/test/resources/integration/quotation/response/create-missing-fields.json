@@ -1,0 +1,10 @@
+{
+    "code": "400",
+    "message": "These attributes are missing or are invalid",
+    "errors": [
+        {
+            "field": "productId",
+            "description": "Product ID is required"
+        }
+    ]
+}

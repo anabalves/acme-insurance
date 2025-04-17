@@ -1,0 +1,22 @@
+{
+    "quotationId": 1,
+    "productId": "1b2da7cc-b367-4196-8a78-9cfeec21f587",
+    "offerId": "adc56d77-348c-4bf0-908f-22d402ee715c",
+    "category": "HOME",
+    "totalMonthlyPremiumAmount": 75.25,
+    "totalCoverageAmount": 825000.0,
+    "coverages": {
+        "Incêndio": 250000.0,
+        "Desastres naturais": 500000.0,
+        "Responsabiliadade civil": 75000.0
+    },
+    "assistances": [
+        "Encanador",
+        "Eletricista",
+        "Chaveiro 24h"
+    ],
+    "customerDocument": "36205578900",
+    "customerName": "John Wick",
+    "customerEmail": "johnwick@gmail.com",
+    "createdAt": "2025-04-15T00:57:49.422633634"
+}

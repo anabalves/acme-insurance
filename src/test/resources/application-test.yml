@@ -1,12 +1,5 @@
-spring:
-  jpa:
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-
 acme:
   insurance:
     cache-ttl-seconds:
-      catalog-product: 5
-      catalog-offer: 5
+      catalog-product: 60
+      catalog-offer: 60

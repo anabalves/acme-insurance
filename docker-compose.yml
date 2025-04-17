@@ -6,8 +6,23 @@ services:
       POSTGRES_DB: db_acme_insurance
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
+    volumes:
+      - ./config/database:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
+    networks:
+      - acme-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
     networks:
       - acme-network
 
@@ -16,6 +31,18 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
+    networks:
+      - acme-network
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    container_name: redisinsight
+    ports:
+      - "5540:5540"
+    volumes:
+      - redisinsight:/db
+    depends_on:
+      - redis
     networks:
       - acme-network
 
@@ -33,6 +60,19 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     ports:
       - "9092:9092"
+    networks:
+      - acme-network
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "8085:8080"
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+    depends_on:
+      - kafka
     networks:
       - acme-network
 
@@ -59,6 +99,8 @@ services:
       - kafka
       - wiremock
     environment:
+      SPRING_PROFILES_ACTIVE: local
+
       DB_HOST: postgres
       DB_USER: user
       DB_PASS: password
@@ -83,3 +125,6 @@ services:
 networks:
   acme-network:
     driver: bridge
+
+volumes:
+  redisinsight:

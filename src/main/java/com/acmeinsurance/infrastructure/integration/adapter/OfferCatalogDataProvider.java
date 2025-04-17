@@ -9,6 +9,7 @@ import com.acmeinsurance.infrastructure.integration.feign.CatalogOfferClient;
 import com.acmeinsurance.infrastructure.integration.mapper.OfferCatalogMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -23,7 +24,8 @@ public class OfferCatalogDataProvider implements OfferCatalogDataGateway {
     private final CatalogCacheProperties cacheProperties;
     private final OfferCatalogMapper mapper;
 
-    public OfferCatalogDataProvider(CatalogOfferClient client, CacheService<OfferCatalogResponse> cache,
+    public OfferCatalogDataProvider(CatalogOfferClient client,
+            @Qualifier("offerCacheService") CacheService<OfferCatalogResponse> cache,
             CatalogCacheProperties cacheProperties, OfferCatalogMapper mapper) {
         this.client = client;
         this.cache = cache;

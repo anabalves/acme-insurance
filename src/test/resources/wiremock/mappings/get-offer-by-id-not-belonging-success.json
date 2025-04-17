@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/offers/4b4b5df2-c7e8-4497-a5b9-e76e985ca49e"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "get-offer-by-id-not-belonging-success-response.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

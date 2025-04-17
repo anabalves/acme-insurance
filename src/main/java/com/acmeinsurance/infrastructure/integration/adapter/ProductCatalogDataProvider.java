@@ -9,6 +9,7 @@ import com.acmeinsurance.infrastructure.integration.feign.CatalogProductClient;
 import com.acmeinsurance.infrastructure.integration.mapper.ProductCatalogMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -23,7 +24,8 @@ public class ProductCatalogDataProvider implements ProductCatalogDataGateway {
     private final CatalogCacheProperties cacheProperties;
     private final ProductCatalogMapper mapper;
 
-    public ProductCatalogDataProvider(CatalogProductClient client, CacheService<ProductCatalogResponse> cache,
+    public ProductCatalogDataProvider(CatalogProductClient client,
+            @Qualifier("productCacheService") CacheService<ProductCatalogResponse> cache,
             CatalogCacheProperties cacheProperties, ProductCatalogMapper mapper) {
         this.client = client;
         this.cache = cache;

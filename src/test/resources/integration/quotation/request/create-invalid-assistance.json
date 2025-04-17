@@ -1,0 +1,22 @@
+{
+    "productId": "1b2da7cc-b367-4196-8a78-9cfeec21f587",
+    "offerId": "adc56d77-348c-4bf0-908f-22d402ee715c",
+    "category": "HOME",
+    "totalMonthlyPremiumAmount": 75.25,
+    "totalCoverageAmount": 825000.00,
+    "coverages": {
+        "Incêndio": 250000.00,
+        "Desastres naturais": 500000.00,
+        "Responsabiliadade civil": 75000.00
+    },
+    "assistances": ["Assistência Inexistente"],
+    "customer": {
+        "documentNumber": "36205578900",
+        "name": "John Wick",
+        "type": "NATURAL",
+        "gender": "MALE",
+        "dateOfBirth": "1973-05-02",
+        "email": "johnwick@gmail.com",
+        "phoneNumber": 11950503030
+    }
+}

@@ -1,5 +1,7 @@
 package com.acmeinsurance.domain.entity;
 
+import com.acmeinsurance.domain.enums.Category;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Map;

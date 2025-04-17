@@ -10,10 +10,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: ${SHOW_SQL:true}
+    show-sql: ${SHOW_SQL:false}
     properties:
       hibernate:
-        format_sql: ${FORMAT_SQL:true}
+        format_sql: ${FORMAT_SQL:false}
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   kafka:
@@ -44,7 +44,7 @@ spring:
           default:
             connectTimeout: 5000
             readTimeout: 5000
-            loggerLevel: FULL
+            loggerLevel: BASIC
 
 acme:
   insurance:
@@ -88,4 +88,5 @@ management:
 
 logging:
   level:
-    root: debug
+    root: error
+    com.acmeinsurance: debug

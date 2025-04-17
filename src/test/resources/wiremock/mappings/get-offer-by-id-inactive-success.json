@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/offers/b56de912-cd30-4795-962e-07327eceba5c"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "get-offer-by-id-inactive-success-response.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
